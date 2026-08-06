@@ -1,0 +1,170 @@
+/* ============================================================
+   A LETTER OF SINCERE APOLOGY — Design System
+   Palette: baby blue #AFCBE3, white #FFFFFF, light blue #E8F1F8,
+            soft gray #6B7280, silver accent #C7CDD4, ink #2E3A46
+   Type: 'Cormorant Garamond' (display, handwritten-letter feel)
+         + 'Jost' (body)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap');
+
+:root{
+  --babyblue:#AFCBE3;
+  --babyblue-deep:#7FA8CC;
+  --lightblue:#EAF3FA;
+  --white:#FFFFFF;
+  --gray:#6B7280;
+  --silver:#C7CDD4;
+  --ink:#2E3A46;
+  --shadow:0 20px 50px rgba(127,168,204,0.25);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:linear-gradient(180deg,var(--lightblue),var(--white) 15%);
+  color:var(--ink);
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,blockquote{font-family:'Cormorant Garamond',serif;font-weight:500;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important;transition-duration:0.001ms !important;}
+}
+
+/* ---------- Ambient particles (soft floating dots) ---------- */
+.atmosphere{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.particle{
+  position:absolute;border-radius:50%;background:var(--babyblue);opacity:0.35;
+  animation:drift 16s linear infinite;
+}
+@keyframes drift{
+  0%{transform:translateY(0);opacity:0;}
+  10%{opacity:0.4;}
+  90%{opacity:0.2;}
+  100%{transform:translateY(-100vh);opacity:0;}
+}
+
+/* ---------- Lock screen ---------- */
+#lock-screen{
+  position:fixed;inset:0;z-index:100;
+  background:radial-gradient(circle at 50% 30%, var(--lightblue), var(--white) 75%);
+  display:flex;align-items:center;justify-content:center;padding:24px;
+  transition:opacity .9s var(--ease), visibility .9s;
+}
+#lock-screen.hidden{opacity:0;visibility:hidden;pointer-events:none;}
+.lock-card{
+  max-width:400px;width:100%;background:var(--white);border-radius:24px;
+  padding:52px 36px;text-align:center;box-shadow:var(--shadow);border:1px solid var(--silver);
+}
+.lock-icon{font-size:2.2rem;margin-bottom:14px;}
+.lock-card h1{font-size:2rem;margin-bottom:10px;color:var(--ink);}
+.lock-card .sub{color:var(--gray);font-style:italic;margin-bottom:30px;font-size:0.95rem;}
+#pw-input{
+  width:100%;padding:14px 16px;font-size:1.1rem;letter-spacing:0.2em;text-align:center;
+  border:1px solid var(--silver);border-radius:12px;margin-bottom:16px;color:var(--ink);
+  background:var(--lightblue);transition:border-color .3s;
+}
+#pw-input:focus{outline:none;border-color:var(--babyblue-deep);}
+#pw-input.shake{animation:shake .45s;}
+@keyframes shake{
+  10%,90%{transform:translateX(-2px);} 20%,80%{transform:translateX(4px);}
+  30%,50%,70%{transform:translateX(-8px);} 40%,60%{transform:translateX(8px);}
+}
+#pw-submit{
+  width:100%;padding:14px;border-radius:12px;background:var(--babyblue-deep);color:var(--white);
+  font-weight:500;letter-spacing:0.03em;transition:transform .25s var(--ease), background .25s;
+}
+#pw-submit:hover{transform:translateY(-2px);background:var(--babyblue);}
+#pw-error{color:#C0685F;font-size:0.85rem;margin-top:12px;min-height:18px;opacity:0;transition:opacity .3s;}
+#pw-error.show{opacity:1;}
+
+/* ---------- Sections ---------- */
+section{
+  position:relative;z-index:1;min-height:100vh;padding:110px 8vw;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease), transform .9s var(--ease);}
+.reveal.show{opacity:1;transform:translateY(0);}
+
+#hero h1{font-size:clamp(2.2rem,6vw,3.6rem);color:var(--ink);max-width:760px;}
+.subtitle{margin-top:16px;font-size:1.1rem;color:var(--babyblue-deep);font-style:italic;}
+.scroll-indicator{
+  margin-top:60px;width:24px;height:38px;border:1px solid var(--silver);border-radius:20px;position:relative;
+}
+.scroll-indicator::before{
+  content:'';position:absolute;top:7px;left:50%;transform:translateX(-50%);
+  width:4px;height:8px;background:var(--babyblue-deep);border-radius:2px;
+  animation:scrollDot 1.6s ease-in-out infinite;
+}
+@keyframes scrollDot{0%{opacity:1;top:7px;}100%{opacity:0;top:20px;}}
+
+.icon-label{
+  font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--babyblue-deep);
+  margin-bottom:28px;font-weight:500;
+}
+
+.card{
+  max-width:620px;background:var(--white);border:1px solid var(--silver);border-radius:22px;
+  padding:40px 34px;box-shadow:var(--shadow);text-align:left;
+}
+.card p{
+  font-family:'Cormorant Garamond',serif;font-size:1.25rem;line-height:1.85;color:var(--ink);margin-bottom:16px;
+}
+.card p:last-child{margin-bottom:0;}
+
+/* ---------- Lessons grid ---------- */
+.lesson-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;max-width:900px;width:100%;}
+.lesson-card{
+  background:var(--white);border:1px solid var(--silver);border-radius:18px;padding:28px 22px;text-align:left;
+  transition:transform .35s var(--ease), box-shadow .35s;
+}
+.lesson-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+.lesson-num{display:block;font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--babyblue-deep);margin-bottom:8px;}
+.lesson-card p{font-size:1.02rem;color:var(--ink);line-height:1.6;}
+
+/* ---------- Promise list ---------- */
+.promise-list{display:flex;flex-direction:column;gap:14px;max-width:520px;width:100%;}
+.promise-item{
+  background:var(--white);border:1px solid var(--silver);border-radius:14px;padding:18px 24px;
+  text-align:left;font-size:1.05rem;color:var(--ink);transition:transform .3s var(--ease);
+}
+.promise-item:hover{transform:translateX(6px);border-color:var(--babyblue-deep);}
+
+/* ---------- Commitment ---------- */
+blockquote{
+  font-size:clamp(1.5rem,3.5vw,2.1rem);color:var(--babyblue-deep);font-style:italic;max-width:640px;
+  line-height:1.5;margin-bottom:24px;
+}
+.commitment-note{max-width:520px;color:var(--gray);font-size:1rem;line-height:1.7;}
+
+/* ---------- Songs From My Heart ---------- */
+.song-list{display:flex;flex-direction:column;gap:14px;max-width:520px;width:100%;}
+.song-item{
+  display:flex;align-items:center;gap:16px;background:var(--white);border:1px solid var(--silver);
+  border-radius:14px;padding:16px 20px;text-align:left;cursor:pointer;
+  transition:transform .3s var(--ease), border-color .3s;
+}
+.song-item:hover{transform:translateX(6px);border-color:var(--babyblue-deep);}
+.song-play{
+  width:38px;height:38px;border-radius:50%;background:var(--babyblue-deep);color:var(--white);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.9rem;
+}
+.song-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--ink);}
+
+/* ---------- Thank you ---------- */
+.signoff{margin-top:32px;font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--ink);}
+.signoff strong{color:var(--babyblue-deep);}
+
+footer{padding:40px;text-align:center;color:var(--gray);font-size:0.8rem;letter-spacing:0.04em;}
+
+@media (max-width:600px){
+  section{padding:90px 6vw;}
+  .card{padding:30px 22px;}
+  }
