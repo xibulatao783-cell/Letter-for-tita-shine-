@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Letter of Sincere Apology</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Ambient background -->
+<div class="atmosphere"><div id="particles"></div></div>
+
+<!-- ============ LOCK SCREEN ============ -->
+<div id="lock-screen">
+  <div class="lock-card">
+    <div class="lock-icon">🔒</div>
+    <h1>Private Letter</h1>
+    <p class="sub">A message written with respect, gratitude, and sincerity.</p>
+    <input type="password" id="pw-input" inputmode="numeric" placeholder="Enter passcode" maxlength="20">
+    <button id="pw-submit">Open Letter</button>
+    <div id="pw-error"></div>
+  </div>
+</div>
+
+<main id="main-content" style="display:none;">
+
+  <!-- ============ SECTION 1: HERO ============ -->
+  <section id="hero" class="reveal">
+    <h1>A Letter of Sincere Apology</h1>
+    <p class="subtitle">Dedicated with respect and gratitude to Tita Shine 💙</p>
+    <div class="scroll-indicator"></div>
+  </section>
+
+  <!-- ============ SECTION 2: MY APOLOGY ============ -->
+  <section class="content-section reveal">
+    <span class="icon-label">✉️ My Apology</span>
+    <div class="card">
+      <p>Tita Shine, I want to say, simply and directly: I'm sorry.</p>
+      <p>Not sorry with excuses, and not sorry just to move past this quickly — but sorry because I understand now what my actions cost, and I'm not going to pretend otherwise.</p>
+      <p>I disappointed someone who welcomed me with kindness, and that is not something I take lightly. There is no explanation that makes it okay, so I won't offer one. I only want to own it, plainly, and ask for your understanding as I do better.</p>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 3: WHAT I LEARNED ============ -->
+  <section class="content-section reveal">
+    <span class="icon-label">🌱 What I Learned</span>
+    <div class="lesson-grid">
+      <div class="lesson-card"><span class="lesson-num">01</span><p>Trust must be protected, not assumed.</p></div>
+      <div class="lesson-card"><span class="lesson-num">02</span><p>Actions have consequences, even the ones I didn't intend.</p></div>
+      <div class="lesson-card"><span class="lesson-num">03</span><p>Good intentions are not enough on their own.</p></div>
+      <div class="lesson-card"><span class="lesson-num">04</span><p>Respect requires self-control, especially when no one is watching.</p></div>
+      <div class="lesson-card"><span class="lesson-num">05</span><p>Boundaries matter, and honoring them is a form of care.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 4: MY PROMISE ============ -->
+  <section class="content-section reveal">
+    <span class="icon-label">🤝 My Promise</span>
+    <div class="promise-list">
+      <div class="promise-item">✓ Be more responsible</div>
+      <div class="promise-item">✓ Respect the trust given to me</div>
+      <div class="promise-item">✓ Think before acting</div>
+      <div class="promise-item">✓ Show change through actions, not just words</div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 5: MY COMMITMENT ============ -->
+  <section class="content-section reveal" id="commitment">
+    <span class="icon-label">🌿 My Commitment</span>
+    <blockquote>"An apology is not proven by words, but by consistency."</blockquote>
+    <p class="commitment-note">I know this can't be settled in a single letter. What I can promise is that I intend to keep showing up better, one action at a time.</p>
+  </section>
+
+  <!-- ============ SECTION 6: SONGS FROM MY HEART ============ -->
+  <section class="content-section reveal" id="songs">
+    <span class="icon-label">🎵 Songs From My Heart</span>
+    <div class="song-list" id="song-list"></div>
+  </section>
+
+  <!-- ============ SECTION 7: THANK YOU ============ -->
+  <section class="content-section reveal" id="thankyou">
+    <span class="icon-label">🙏 Thank You</span>
+    <div class="card">
+      <p>Beyond the apology, I also want to say thank you — for welcoming me, for your kindness, for the care you've shown, and for always making me feel accepted.</p>
+      <p>That generosity means more to me than I've probably ever said out loud.</p>
+    </div>
+    <p class="signoff">With respect and sincerity,<br><strong>Xi 💙</strong></p>
+  </section>
+
+  <footer>made with care, for Tita Shine 💙</footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
